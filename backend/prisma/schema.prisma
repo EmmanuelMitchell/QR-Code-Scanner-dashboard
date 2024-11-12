@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// prisma/schema.prisma
+
+// Define the SQLite database provider
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Define a model for QR code scans
+model Scan {
+  id         Int      @id @default(autoincrement()) // Primary key
+  deviceType String   // Stores either "iPhone" or "Android"
+  timestamp  DateTime @default(now())               // Stores the timestamp of the scan
+}
