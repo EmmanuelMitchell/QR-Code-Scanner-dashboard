@@ -57,9 +57,10 @@ const DeviceStats = () => {
 
   // Redirect based on the device type in the query parameter
   if (deviceType === "android") {
-    window.location.href = "https://www.w3schools.com/"; // Redirect to Android page
+    window.location.href =
+      "https://drive.google.com/file/d/1poiQWBIr3ZMPBLPdQ-kMj3jkHEiuVr9I/view?usp=drivesdk"; // Redirect to Android page
   } else if (deviceType === "iphone") {
-    window.location.href = "https://www.youtube.com/"; // Redirect to iPhone page
+    window.location.href = ": https://testflight.apple.com/join/TyjwXqWn"; // Redirect to iPhone page
   }
 
   useEffect(() => {
