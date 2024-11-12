@@ -51,19 +51,18 @@ import React, { useEffect, useState } from "react";
 
 const DeviceStats = () => {
   const [stats, setStats] = useState({ iPhone: 0, Android: 0 });
+  // Fetch the query parameter 'device' from the URL
+  const urlParams = new URL(window.location.href).searchParams;
+  const deviceType = urlParams.get("device");
+
+  // Redirect based on the device type in the query parameter
+  if (deviceType === "android") {
+    window.location.href = "https://www.w3schools.com/"; // Redirect to Android page
+  } else if (deviceType === "iphone") {
+    window.location.href = "https://www.youtube.com/"; // Redirect to iPhone page
+  }
 
   useEffect(() => {
-    // Fetch the query parameter 'device' from the URL
-    const urlParams = new URL(location.href).searchParams;
-    const deviceType = urlParams.get("device");
-
-    // Redirect based on the device type in the query parameter
-    if (deviceType === "android") {
-      location.href = "https://www.w3schools.com/"; // Redirect to Android page
-    } else if (deviceType === "iphone") {
-      location.href = "https://www.youtube.com/"; // Redirect to iPhone page
-    }
-
     // Fetch stats from the backend
     const fetchStats = async () => {
       try {
