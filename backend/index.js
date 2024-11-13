@@ -14,6 +14,7 @@ app.use(
 );
 // Middleware to parse JSON requests
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 /**
  * POST /api/scan
@@ -22,7 +23,7 @@ app.use(express.json());
  */
 app.post("/api/scan", async (req, res) => {
   const { deviceType } = req.body;
-
+  console.log(req.body);
   // Check if deviceType is provided and is valid
   if (!deviceType || (deviceType !== "iPhone" && deviceType !== "Android")) {
     return res.status(400).json({ error: "Invalid device type" });
@@ -57,12 +58,13 @@ app.get("/api/stats", async (req, res) => {
     });
 
     // Send response with counts
-    res.json({
+    return res.json({
       iphone: iphoneCount,
       android: androidCount,
     });
   } catch (error) {
-    res.status(500).json({ error: "Failed to retrieve stats" });
+    // res.status(500).json({ error: "Failed to retrieve stats" });
+    console.log(error);
   }
 });
 

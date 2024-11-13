@@ -80,9 +80,11 @@ const DeviceStats = () => {
       recordScan("Android"); // Record Android scan
       window.location.href =
         "https://drive.google.com/file/d/1poiQWBIr3ZMPBLPdQ-kMj3jkHEiuVr9I/view?usp=drivesdk";
+      return;
     } else if (deviceType === "iphone") {
       recordScan("iPhone"); // Record iPhone scan
       window.location.href = "https://testflight.apple.com/join/TyjwXqWn";
+      return;
     }
 
     const fetchStats = async () => {
